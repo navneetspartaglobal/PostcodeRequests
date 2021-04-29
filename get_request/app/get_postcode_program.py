@@ -2,17 +2,21 @@ import requests
 import json
 from pprint import pprint
 
-
 class PostCode:
+    def __init__(self, post_code, columns):
+        self.postcode = post_code
+        self.column_list = columns
 
-    def __init__(self, postcode):
-        self.postcode = postcode
-        self.headers = {"Content-Type": "application/json"}
+    def retrieve_postcode_details(self):
+        postcode_details = requests.get(f"https://api.postcodes.io/postcodes/{self.postcode}")
+        return dict(postcode_details.json())["result"].items()
 
-    def retrieve_postcode(self):
-        postcode_columns = requests.get(f"https://api.postcodes.io/postcodes/{self.postcode}")
-        return dict(postcode_columns.json())["result"]
+    def select_values(self):
+        postcode_details_dictionary = self.retrieve_postcode_details()
+        return [(key, value) for (key, value) in postcode_details_dictionary if key in self.column_list]
 
-
-request1 = PostCode("DT9 4LS")
-pprint(request1.retrieve_postcode()['admin_county'])
+def get_columns():
+    postcode_details = requests.get(f"https://api.postcodes.io/postcodes/HP22 6DB")
+    postcode_details_dictionary = dict(postcode_details.json())["result"].items()
+    key_list = [key for (key, value) in postcode_details_dictionary]
+    return key_list
