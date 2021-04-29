@@ -1,1 +1,3 @@
 # PostcodeRequests
+
+This package uses an api to retrieve information about a postcode specified by the user....
