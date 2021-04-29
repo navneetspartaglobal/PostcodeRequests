@@ -19,4 +19,3 @@ class PostCode:
 
 request1 = PostCode("DT9 4LS", ['postcode', 'quality', 'eastings', 'northings', 'country', 'nhs_ha', 'longitude', 'latitude', 'european_electoral_region', 'primary_care_trust', 'region', 'lsoa', 'msoa', 'incode', 'outcode'])
 pprint(request1.select_values())
-
