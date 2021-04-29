@@ -20,11 +20,14 @@ import json
 
 class PostCode:
 
-    def __init__(self):
-        pass
+    def __init__(self, postcode):
+        self.postcode = postcode
+        self.request_url = f"https://api.postcodes.io/postcodes/{postcode}"
 
-    def set_postcode(self):
-        pass
+    def retrieve_postcode(self):
+        self.postcode = 
 
     def request_info(self):
         pass
+
+request1 = PostCode("")
