@@ -25,7 +25,7 @@ class PostCode:
         self.request_url = f"https://api.postcodes.io/postcodes/{postcode}"
 
     def retrieve_postcode(self):
-        self.postcode
+        self.postcode = 
 
     def request_info(self):
         pass
